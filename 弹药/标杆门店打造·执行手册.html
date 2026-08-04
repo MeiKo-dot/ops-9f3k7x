@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>标杆门店打造 · 执行手册 — 门窗AI智能设计平台</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #f7f3eb;
+  --paper-dark: #ede6d9;
+  --ink: #1b1b1b;
+  --ink-muted: #5a554b;
+  --ink-light: #8a8478;
+  --blueprint: #1a3a5c;
+  --blueprint-light: #2a5a8c;
+  --blueprint-pale: rgba(26, 58, 92, 0.06);
+  --blueprint-line: rgba(26, 58, 92, 0.12);
+  --amber: #c2783a;
+  --amber-light: #e8a860;
+  --amber-pale: rgba(194, 120, 58, 0.08);
+  --red: #b5343a;
+  --red-pale: rgba(181, 52, 58, 0.07);
+  --green: #3a7d5a;
+  --green-pale: rgba(58, 125, 90, 0.07);
+  --nav-width: 260px;
+  --content-max: 860px;
+  --grid-size: 24px;
+  --grid-mini: 4px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 17px; }
+
+body {
+  font-family: 'Crimson Text', 'Noto Sans SC', Georgia, serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(circle, var(--blueprint-line) 1px, transparent 1px);
+  background-size: var(--grid-size) var(--grid-size);
+  background-position: 0 0;
+  min-height: 100vh;
+}
+
+/* ── Navigation ── */
+.sidebar {
+  position: fixed; left: 0; top: 0; bottom: 0;
+  width: var(--nav-width);
+  background: var(--blueprint);
+  color: #e8dcc8;
+  z-index: 100;
+  overflow-y: auto;
+  padding: 40px 0 40px 28px;
+  display: flex; flex-direction: column;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+.sidebar::after {
+  content: ''; position: absolute; right: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--amber), transparent 60%);
+}
+.sidebar-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+.sidebar-sub {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 36px;
+}
+.sidebar-nav { list-style: none; flex: 1; }
+.sidebar-nav li { margin-bottom: 2px; }
+.sidebar-nav a {
+  display: block; padding: 5px 8px 5px 16px;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none; font-size: 0.78rem;
+  border-left: 2px solid transparent;
+  transition: all 0.25s;
+  position: relative;
+}
+.sidebar-nav a:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.05);
+  border-left-color: rgba(255,255,255,0.2);
+}
+.sidebar-nav a.active {
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+  border-left-color: var(--amber);
+  font-weight: 600;
+}
+.sidebar-nav a .num {
+  display: inline-block; width: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--amber-light);
+  margin-right: 4px;
+}
+.sidebar-footer {
+  margin-top: auto; padding-top: 24px;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.25);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ── Main Content ── */
+.main {
+  margin-left: var(--nav-width);
+  max-width: calc(var(--content-max) + 120px);
+  padding: 64px 60px 120px;
+}
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  padding: 40px 0 60px;
+  margin-bottom: 60px;
+  border-bottom: 1px solid var(--blueprint-line);
+}
+.hero::before {
+  content: 'FIELD MANUAL'; 
+  position: absolute; top: -8px; left: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.2em;
+  color: var(--amber); text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'DM Serif Display', 'Noto Sans SC', serif;
+  font-size: 2.8rem; font-weight: 400;
+  line-height: 1.15; color: var(--blueprint);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+.hero h1 em { font-style: italic; color: var(--amber); }
+.hero .meta-bar {
+  display: flex; gap: 24px; flex-wrap: wrap;
+  font-size: 0.75rem; color: var(--ink-muted);
+}
+.hero .meta-bar span { display: flex; align-items: center; gap: 6px; }
+.hero .meta-bar .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  display: inline-block;
+}
+.dot-v { background: var(--blueprint); }
+.dot-a { background: var(--amber); }
+
+/* ── Section Headers ── */
+.section { margin-bottom: 80px; }
+.section-header {
+  display: flex; align-items: flex-start; gap: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--blueprint-line);
+}
+.section-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem; color: var(--amber);
+  background: var(--amber-pale);
+  padding: 4px 10px; border-radius: 2px;
+  margin-top: 2px; flex-shrink: 0;
+}
+.section-header h2 {
+  font-family: 'DM Serif Display', 'Noto Sans SC', serif;
+  font-size: 1.7rem; font-weight: 400;
+  color: var(--blueprint);
+  letter-spacing: -0.01em;
+}
+.subsection { margin-bottom: 40px; }
+.subsection h3 {
+  font-size: 1.15rem; font-weight: 600;
+  color: var(--ink); margin-bottom: 16px;
+  position: relative; padding-left: 16px;
+}
+.subsection h3::before {
+  content: ''; position: absolute; left: 0; top: 4px;
+  width: 4px; height: calc(100% - 8px);
+  background: var(--blueprint);
+  border-radius: 2px;
+}
+.subsection h4 {
+  font-size: 0.95rem; font-weight: 600;
+  color: var(--blueprint);
+  margin: 20px 0 10px;
+  font-family: 'JetBrains Mono', 'Noto Sans SC', monospace;
+  font-size: 0.8rem; letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* ── Text ── */
+p { margin-bottom: 14px; color: var(--ink); }
+strong { color: var(--ink); font-weight: 700; }
+em { font-style: italic; color: var(--amber); }
+
+/* ── Inline Code ── */
+code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82em;
+  background: var(--blueprint-pale);
+  padding: 1px 6px; border-radius: 2px;
+  color: var(--blueprint-light);
+}
+
+/* ── Tables ── */
+.table-wrap {
+  overflow-x: auto; margin: 20px 0 28px;
+  border: 1px solid var(--blueprint-line);
+  border-radius: 3px;
+  background: rgba(255,255,255,0.4);
+}
+table {
+  width: 100%; border-collapse: collapse;
+  font-size: 0.8rem; min-width: 600px;
+}
+thead { background: var(--blueprint-pale); }
+th {
+  font-family: 'JetBrains Mono', 'Noto Sans SC', monospace;
+  font-size: 0.68rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--blueprint);
+  padding: 10px 12px; text-align: left;
+  border-bottom: 2px solid var(--blueprint-line);
+}
+td {
+  padding: 9px 12px; text-align: left;
+  border-bottom: 1px solid var(--blueprint-line);
+  color: var(--ink);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--amber-pale); transition: background 0.15s; }
+
+/* ── Blockquote ── */
+blockquote {
+  margin: 24px 0; padding: 16px 20px;
+  border-left: 3px solid var(--amber);
+  background: var(--amber-pale);
+  font-size: 0.9rem; color: var(--ink-muted);
+  border-radius: 0 3px 3px 0;
+}
+blockquote strong { color: var(--amber); }
+
+/* ── Code Block ── */
+pre {
+  background: var(--blueprint-pale);
+  padding: 20px 24px; border-radius: 4px;
+  margin: 16px 0 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem; line-height: 1.6;
+  color: var(--blueprint);
+  border: 1px solid var(--blueprint-line);
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+/* ── Timeline ── */
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px; margin: 28px 0;
+}
+.timeline-item {
+  background: var(--blueprint-pale);
+  border: 1px solid var(--blueprint-line);
+  border-radius: 4px; padding: 16px;
+  text-align: center; position: relative;
+}
+.timeline-item .phase-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem; color: var(--amber);
+  letter-spacing: 0.1em; margin-bottom: 6px;
+}
+.timeline-item .phase-name {
+  font-weight: 700; font-size: 0.9rem;
+  color: var(--blueprint); margin-bottom: 4px;
+}
+.timeline-item .phase-date {
+  font-size: 0.7rem; color: var(--ink-muted);
+}
+.timeline-arrow {
+  position: absolute; right: -18px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--amber); font-size: 1.2rem;
+  z-index: 1;
+}
+.timeline-item:last-child .timeline-arrow { display: none; }
+
+/* ── Day Cards ── */
+.day-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 24px 0; }
+.day-card {
+  background: #fff;
+  border: 1px solid var(--blueprint-line);
+  border-radius: 6px; overflow: hidden;
+}
+.day-card-header {
+  background: var(--blueprint);
+  color: #e8dcc8;
+  padding: 10px 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem; letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.day-card-header span:last-child { color: var(--amber-light); }
+.day-card-body { padding: 12px 16px; }
+.day-card-body table { 
+  --table-wrap: none;
+  font-size: 0.72rem; 
+  min-width: unset;
+}
+.day-card-body th { font-size: 0.62rem; padding: 6px 8px; }
+.day-card-body td { padding: 6px 8px; font-size: 0.72rem; }
+.day-card-body .table-wrap { margin: 0; border: none; }
+
+/* ── Callout Cards ── */
+.callout {
+  padding: 16px 20px; border-radius: 4px;
+  margin: 20px 0; font-size: 0.85rem;
+  display: flex; gap: 12px; align-items: flex-start;
+}
+.callout-icon {
+  font-size: 1.2rem; flex-shrink: 0;
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 3px;
+}
+.callout-info { background: var(--blueprint-pale); border-left: 3px solid var(--blueprint); }
+.callout-info .callout-icon { background: var(--blueprint); color: #fff; }
+.callout-warn { background: var(--amber-pale); border-left: 3px solid var(--amber); }
+.callout-warn .callout-icon { background: var(--amber); color: #fff; }
+.callout-danger { background: var(--red-pale); border-left: 3px solid var(--red); }
+.callout-danger .callout-icon { background: var(--red); color: #fff; }
+
+/* ── Badge Tags ── */
+.badge {
+  display: inline-block; padding: 2px 8px;
+  border-radius: 2px; font-size: 0.65rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500; letter-spacing: 0.04em;
+}
+.badge-blue { background: var(--blueprint-pale); color: var(--blueprint); }
+.badge-amber { background: var(--amber-pale); color: var(--amber); }
+.badge-red { background: var(--red-pale); color: var(--red); }
+.badge-green { background: var(--green-pale); color: var(--green); }
+
+/* ── Highlight Box ── */
+.highlight-box {
+  background: #fff;
+  border: 1px solid var(--amber);
+  border-radius: 4px;
+  padding: 24px 28px; margin: 24px 0;
+  position: relative;
+}
+.highlight-box::before {
+  content: '★'; position: absolute;
+  top: -12px; left: 24px;
+  background: var(--amber);
+  color: #fff; width: 24px; height: 24px;
+  border-radius: 50%; display: flex;
+  align-items: center; justify-content: center;
+  font-size: 0.7rem;
+}
+
+/* ── Flow Diagram ── */
+.flow-diagram {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  align-items: center; justify-content: center;
+  margin: 20px 0; font-family: 'JetBrains Mono', 'Noto Sans SC', monospace;
+  font-size: 0.78rem;
+}
+.flow-node {
+  background: var(--blueprint-pale);
+  border: 1px solid var(--blueprint-line);
+  padding: 12px 18px; border-radius: 3px;
+  text-align: center; min-width: 100px;
+}
+.flow-node .fn-title { font-weight: 700; color: var(--blueprint); }
+.flow-node .fn-sub { font-size: 0.65rem; color: var(--ink-muted); margin-top: 3px; }
+.flow-arrow { color: var(--amber); font-size: 1.3rem; font-weight: 700; }
+
+/* ── Progress Bar (Risk) ── */
+.risk-bar { display: flex; align-items: center; gap: 8px; }
+.risk-fill {
+  height: 6px; border-radius: 3px;
+  min-width: 40px;
+}
+.risk-high { background: var(--red); }
+.risk-mid { background: var(--amber); }
+.risk-low { background: var(--green); }
+
+/* ── List styles ── */
+ul, ol { margin: 12px 0 16px 20px; }
+li { margin-bottom: 6px; font-size: 0.88rem; }
+ul.checklist { list-style: none; margin-left: 0; }
+ul.checklist li { padding-left: 24px; position: relative; }
+ul.checklist li::before {
+  content: '☐'; position: absolute; left: 0;
+  color: var(--blueprint); font-size: 0.9rem;
+}
+
+/* ── Scroll Progress ── */
+.scroll-progress {
+  position: fixed; top: 0; left: var(--nav-width);
+  height: 3px; background: var(--amber);
+  z-index: 200; transition: width 0.1s linear;
+}
+
+/* ── Back to Top ── */
+.back-top {
+  position: fixed; bottom: 40px; right: 40px;
+  width: 40px; height: 40px;
+  background: var(--blueprint); color: #e8dcc8;
+  border: none; border-radius: 4px; cursor: pointer;
+  font-size: 1.2rem; display: flex; align-items: center; justify-content: center;
+  opacity: 0; transform: translateY(20px);
+  transition: all 0.3s; z-index: 200;
+  box-shadow: 0 4px 16px rgba(26,58,92,0.3);
+}
+.back-top.visible { opacity: 1; transform: translateY(0); }
+.back-top:hover { background: var(--blueprint-light); }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .sidebar { display: none; }
+  .main { margin-left: 0; padding: 32px 20px 80px; }
+  .scroll-progress { left: 0; }
+  .hero h1 { font-size: 2rem; }
+  .timeline { grid-template-columns: repeat(2, 1fr); }
+  .day-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .hero h1 { font-size: 1.6rem; }
+  .timeline { grid-template-columns: 1fr; }
+  .table-wrap { font-size: 0.7rem; }
+  th, td { padding: 6px 8px; }
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">标杆门店打造</div>
+  <div class="sidebar-sub">Field Operations Manual</div>
+  <ul class="sidebar-nav" id="sidebarNav">
+    <li><a href="#s1"><span class="num">01</span>目标与选店标准</a></li>
+    <li><a href="#s2"><span class="num">02</span>验证范围</a></li>
+    <li><a href="#s3"><span class="num">03</span>实施流程总览</a></li>
+    <li><a href="#s4"><span class="num">04</span>筹备期</a></li>
+    <li><a href="#s5"><span class="num">05</span>驻店打样</a></li>
+    <li><a href="#s6"><span class="num">06</span>现场调研流程</a></li>
+    <li><a href="#s7"><span class="num">07</span>数据采集方案</a></li>
+    <li><a href="#s8"><span class="num">08</span>案例素材采集</a></li>
+    <li><a href="#s9"><span class="num">09</span>线上跟踪</a></li>
+    <li><a href="#s10"><span class="num">10</span>项目汇报</a></li>
+    <li><a href="#s11"><span class="num">11</span>成功标准</a></li>
+    <li><a href="#s12"><span class="num">12</span>复制推广</a></li>
+    <li><a href="#s13"><span class="num">13</span>风险与应对</a></li>
+    <li><a href="#s14"><span class="num">14</span>附录</a></li>
+  </ul>
+  <div class="sidebar-footer">v1.0 · 2026-07-15<br>编制人：尚酷 & 天光</div>
+</nav>
+
+<main class="main">
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <h1>标杆门店打造<br><em>执行手册</em></h1>
+  <div class="meta-bar">
+    <span><span class="dot dot-v"></span> 版本 v1.0</span>
+    <span><span class="dot dot-a"></span> 编制：2026-07-15 · 尚酷 & 天光</span>
+    <span>适用：H2 三家客户 · 首轮富轩（8月）</span>
+  </div>
+  <p style="margin-top:20px;color:var(--ink-muted);font-size:0.85rem;">对内为团队执行SOP，对外为品牌方合作方案。<br>验证一件事：<strong>非专业设计师是否愿意持续使用这个工具。</strong></p>
+</section>
+
+<!-- ── SECTION 1 ── -->
+<section class="section" id="s1">
+<div class="section-header"><span class="section-num">01</span><h2>目标与选店标准</h2></div>
+
+<div class="subsection">
+<h3>标杆打造的核心目的</h3>
+
+<div class="highlight-box">
+<p style="font-size:1.1rem;font-weight:700;color:var(--blueprint);margin-bottom:20px;">验证一件事：非专业设计师（导购/销售），是否愿意持续使用这个工具。</p>
+<div class="table-wrap"><table>
+<thead><tr><th>验证线</th><th>核心问题</th><th>衡量方式</th></tr></thead>
+<tbody>
+<tr><td><strong>上手性</strong></td><td>没有设计背景的人，能不能学会？学了愿不愿意用？</td><td>培训后独立操作完成度、驻店后持续使用频次</td></tr>
+<tr><td><strong>成交助力</strong></td><td>用了之后对接单有没有实际帮助？</td><td>是否有"用了→成交了"的真实案例、导购/销售的主观评价</td></tr>
+</tbody>
+</table></div>
+<p style="margin-top:16px;">标杆门店不是来做数据量的，是来回答产品最根本的问题：<strong>这个工具打中了门店的真实痛点，还是我们自己的幻觉？</strong></p>
+</div>
+<blockquote>产品说明 §7.4：「这件事对接单有没有帮助？」—— 这是终极评价标准。</blockquote>
+</div>
+
+<div class="subsection">
+<h3>选店画像（对内执行）</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>维度</th><th>标准</th><th>原因</th></tr></thead>
+<tbody>
+<tr><td><strong>城市层级</strong></td><td>一线城市 + 下沉市场各至少1家</td><td>覆盖不同市场环境下的使用差异</td></tr>
+<tr><td><strong>人员配置</strong></td><td>优先选 <span class="badge badge-amber">无专职设计师</span> 的门店</td><td>核心验证：导购/销售是否能替代设计师出图</td></tr>
+<tr><td><strong>店员数量</strong></td><td>优先选店员较多的门店</td><td>可同时测试多角色（导购 vs 销售）的使用差异</td></tr>
+<tr><td><strong>配合意愿</strong></td><td>老板愿意配合、店员愿意学</td><td>打样需要真实使用，不配合等于空跑</td></tr>
+<tr><td><strong>业务量</strong></td><td>日均有一定自然客流</td><td>有足够的真实客户场景用于验证</td></tr>
+<tr><td><strong>设备条件</strong></td><td>至少有1台平板或智能手机</td><td>移动端验证的基础条件</td></tr>
+<tr><td><strong>排除条件</strong></td><td>正在装修/搬迁、老板抵触数字化工具</td><td>干扰因素过多</td></tr>
+</tbody>
+</table></div>
+<p><strong>富轩首次打样要求</strong>：3 家门店，至少覆盖一线 1 家 + 下沉 1-2 家。</p>
+</div>
+
+<div class="subsection">
+<h3>给品牌方看的选店说明 <span class="badge badge-blue">对外合作方案用</span></h3>
+<pre>我们需要贵司推荐 3 家门店参与首次标杆打造，推荐标准：
+
+1. 建议包含不同城市层级（如省会1家 + 地级市2家）
+2. 门店有日常自然客流（日均接待≥3组客户）
+3. 店员数量建议≥3人（含1名店长）
+4. 门店老板对数字化工具持开放态度
+5. 门店需具备基本网络条件和至少1台平板/智能手机</pre>
+</div>
+</section>
+
+<!-- ── SECTION 2 ── -->
+<section class="section" id="s2">
+<div class="section-header"><span class="section-num">02</span><h2>验证范围</h2></div>
+<div class="subsection"><h3>验证能力清单（8 项）</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>编号</th><th>能力</th><th>产品说明来源</th><th>验证重点</th></tr></thead>
+<tbody>
+<tr><td><span class="badge badge-blue">C1</span></td><td><strong>系列推荐</strong></td><td>§2.1 标签推荐体系</td><td>标签输入后推荐的准确性、导购是否觉得有用</td></tr>
+<tr><td><span class="badge badge-blue">C2</span></td><td><strong>窗型分格推荐</strong></td><td>§2.1 快速绘窗</td><td>洞口尺寸输入后分格方案的合理性</td></tr>
+<tr><td><span class="badge badge-blue">C3</span></td><td><strong>图纸</strong></td><td>§2.1 施工图输出（8月MVP）</td><td>轻量化图纸是否满足门店基本需要</td></tr>
+<tr><td><span class="badge badge-amber">C4</span></td><td><strong>AI生图·室内</strong></td><td>§2.1 室内LoRA</td><td>室内视角效果图质量、客户反馈</td></tr>
+<tr><td><span class="badge badge-amber">C5</span></td><td><strong>AI生图·涂抹</strong></td><td>§2.1 涂抹消除</td><td>现场杂物消除效果、操作便捷度</td></tr>
+<tr><td><span class="badge badge-amber">C6</span></td><td><strong>AI生图·别墅</strong></td><td>§2.1 室外LoRA</td><td>别墅外观效果图质量、是否需要设计师辅助</td></tr>
+<tr><td><span class="badge badge-green">C7</span></td><td><strong>报价</strong></td><td>§2.1 报价清单</td><td>报价准确度、操作效率</td></tr>
+<tr><td><span class="badge badge-green">C8</span></td><td><strong>手动放窗户</strong></td><td>§2.1 快速绘窗</td><td>非AI流程下手动绘窗的上手速度</td></tr>
+</tbody>
+</table></div></div>
+
+<div class="subsection"><h3>验证场景矩阵</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>场景</th><th>设备</th><th>场合</th><th>人员</th><th>重点验证</th><th>典型画面</th></tr></thead>
+<tbody>
+<tr><td><strong>S1</strong></td><td>平板</td><td>门店接待区</td><td>导购</td><td>C1+C4+C7</td><td>导购拿平板在洽谈区给客户看方案</td></tr>
+<tr><td><strong>S2</strong></td><td>手机</td><td>工地现场</td><td>销售</td><td>C2+C4+C6+C8</td><td>销售在工地拍照→AI出图→报尺寸</td></tr>
+<tr><td><strong>S3</strong></td><td>PC</td><td>门店后台</td><td>导购</td><td>C1+C2+C3+C7</td><td>导购在门店用电脑出正式方案+图纸</td></tr>
+<tr><td><strong>S4</strong></td><td>手机</td><td>工地现场</td><td>销售</td><td>C5</td><td>现场拍照有杂物→涂抹消除→放窗户</td></tr>
+<tr><td><strong>S5</strong></td><td>平板</td><td>门店接待区</td><td>销售</td><td>C4+C6</td><td>销售展示别墅外景效果图给客户</td></tr>
+</tbody>
+</table></div></div>
+
+<div class="subsection"><h3>云端案例库需求验证 <span class="badge badge-red">特殊验证项</span></h3>
+<div class="callout callout-info"><div class="callout-icon">?</div><div><strong>验证目的</strong>：导购是否有"查找案例参考"的真实需求？还是我们YY的功能？</div></div>
+<p><strong>验证方法</strong>：</p>
+<ul><li>不主动介绍案例库功能</li><li>观察导购是否自发提到"有没有别人家的案例可以参考"</li><li>驻店第2天主动询问使用意愿和场景</li></ul>
+<p><strong>判真条件</strong>：</p>
+<div class="table-wrap"><table>
+<thead><tr><th>条件</th><th>结论</th></tr></thead>
+<tbody>
+<tr><td>导购自发提出搜案例需求</td><td><span class="badge badge-red">真需求 · P0</span></td></tr>
+<tr><td>被问到后能说出≥2个具体使用场景</td><td><span class="badge badge-amber">真需求 · P1</span></td></tr>
+<tr><td>表示"好像有用但说不清怎么用"</td><td>弱需求，优先度降</td></tr>
+<tr><td>表示不需要</td><td>伪需求，暂缓</td></tr>
+</tbody>
+</table></div></div>
+</section>
+
+<!-- ── SECTION 3 ── -->
+<section class="section" id="s3">
+<div class="section-header"><span class="section-num">03</span><h2>实施流程总览</h2></div>
+<div class="timeline">
+<div class="timeline-item"><div class="phase-num">PHASE 1</div><div class="phase-name">筹备期</div><div class="phase-date">7月下旬 — 7月底</div><div class="timeline-arrow">→</div></div>
+<div class="timeline-item"><div class="phase-num">PHASE 2</div><div class="phase-name">驻店打样</div><div class="phase-date">8月 · 3店×2-3天</div><div class="timeline-arrow">→</div></div>
+<div class="timeline-item"><div class="phase-num">PHASE 3</div><div class="phase-name">线上跟踪</div><div class="phase-date">驻店后 1 周</div><div class="timeline-arrow">→</div></div>
+<div class="timeline-item"><div class="phase-num">PHASE 4</div><div class="phase-name">项目汇报</div><div class="phase-date">9月初</div></div>
+</div>
+</section>
+
+<!-- ── SECTION 4 ── -->
+<section class="section" id="s4">
+<div class="section-header"><span class="section-num">04</span><h2>阶段一：筹备期（下店前 2 周）</h2></div>
+
+<div class="subsection"><h3>品牌方需配合事项 <span class="badge badge-blue">对外合作方案用</span></h3>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>事项</th><th>说明</th><th>时限</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>创建账号</strong></td><td>开通平台账号，配置权限</td><td>下店前 1 周</td></tr>
+<tr><td>2</td><td><strong>窗型库配置</strong></td><td>录入产品系列、窗型、型材参数</td><td>下店前 1 周</td></tr>
+<tr><td>3</td><td><strong>推荐门店名单</strong></td><td>按选店标准推荐 3-5 家候选</td><td>下店前 2 周</td></tr>
+<tr><td>4</td><td><strong>提前通知门店</strong></td><td>告知打样安排、配合事项</td><td>下店前 1 周</td></tr>
+<tr><td>5</td><td><strong>准备打样物料</strong></td><td>横幅/易拉宝/桌牌（我方提供设计稿）</td><td>下店前 3 天</td></tr>
+</tbody>
+</table></div></div>
+
+<div class="subsection"><h3>我方团队准备清单 <span class="badge badge-amber">对内执行</span></h3>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>事项</th><th>负责人</th><th>说明</th><th>时限</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>账号功能验证</td><td>草头</td><td>跑通全流程，确保功能可用</td><td>下店前 1 周</td></tr>
+<tr><td>2</td><td>窗型库验收</td><td>草头</td><td>确认品牌产品库准确</td><td>下店前 1 周</td></tr>
+<tr><td>3</td><td>设备准备</td><td>天光</td><td>2台平板 + 1台笔记本</td><td>下店前 3 天</td></tr>
+<tr><td>4</td><td>数据采集表</td><td>实习生助理</td><td>驻店数据记录表</td><td>下店前 3 天</td></tr>
+<tr><td>5</td><td>培训课件</td><td>天光</td><td>导购上手培训 PPT（≤15分钟）</td><td>下店前 5 天</td></tr>
+<tr><td>6</td><td>门店信息确认</td><td>客户成功经理</td><td>地址、联系人、到店时间</td><td>下店前 3 天</td></tr>
+<tr><td>7</td><td>物料设计</td><td>天光</td><td>横幅/桌牌/操作指南设计稿</td><td>下店前 1 周</td></tr>
+<tr><td>8</td><td>出行安排</td><td>天光</td><td>排期、交通住宿</td><td>下店前 5 天</td></tr>
+</tbody>
+</table></div></div>
+</section>
+
+<!-- ── SECTION 5 ── -->
+<section class="section" id="s5">
+<div class="section-header"><span class="section-num">05</span><h2>阶段二：驻店打样（每店 2-3 天）</h2></div>
+
+<div class="subsection"><h3>驻店日程模板（参考）</h3>
+
+<div class="day-grid">
+<div class="day-card"><div class="day-card-header"><span>DAY 1</span><span>调研 + 培训</span></div>
+<div class="day-card-body"><div class="table-wrap"><table>
+<thead><tr><th>时段</th><th>动作</th><th>负责人</th><th>产出</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td>上午</td><td>门店调研</td><td>天光</td><td>调研记录表</td><td rowspan="1">必须有的调研内容：<br>1. 门店基本信息（面积、位置（建材市场/街边/商场）、日均客流）<br>2. 人员结构<br>3. 现有工具<br>4. 接待流程（客户进店→谁接待→怎么推荐→怎么报价→怎么跟进）<br>5. 典型订单（主力产品（窗户/门/封阳台）、客单价、成单周期）<br>6. 工地流程（谁去量尺？带什么工具？量完怎么出方案？）<br>7. 痛点观察<br>8. 导购首次接待时能不能独立用平台出方案？能不能讲清楚效果图？<br>9. 销售（量尺人员）工地现场能不能用手机拍照→出图→报价？愿不愿意用？<br>10. 店长关不关心出图量数据？关不关心导购学习速度？</td></tr>
+<tr><td>下午</td><td>导购上手培训（15分钟讲+30分钟实操）</td><td>天光</td><td>培训完成</td><td></td></tr>
+<tr><td>下午</td><td>首个真实客户接待观察</td><td>天光</td><td>首次使用记录</td><td></td></tr>
+</tbody>
+</table></div></div></div>
+
+<div class="day-card"><div class="day-card-header"><span>DAY 2</span><span>实战 + 反馈</span></div>
+<div class="day-card-body"><div class="table-wrap"><table>
+<thead><tr><th>时段</th><th>动作</th><th>负责人</th><th>产出</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td>上午</td><td>如有工地量尺，跟随销售到现场验证移动端</td><td>天光</td><td>现场使用记录</td><td></td></tr>
+<tr><td>下午</td><td>一对一访谈（每个店员 15-20 分钟）</td><td>天光</td><td>访谈纪要</td><td></td></tr>
+<tr><td>下午</td><td>当日问题汇总 + 即时修复（能改的当场改）</td><td>天光/产品</td><td>问题清单</td><td></td></tr>
+</tbody>
+</table></div></div></div>
+
+<div class="day-card"><div class="day-card-header"><span>DAY 3</span><span>深化 + 案例采集</span></div>
+<div class="day-card-body"><div class="table-wrap"><table>
+<thead><tr><th>时段</th><th>动作</th><th>负责人</th><th>产出</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td>上午</td><td>针对性场景补测（前一天未覆盖的场景）</td><td>天光</td><td>场景验证记录</td><td></td></tr>
+<tr><td>上午</td><td>案例素材采集</td><td>实习生</td><td>照片+视频素材</td><td></td></tr>
+<tr><td>下午</td><td>店长总结沟通：收反馈、确认后续安排</td><td>天光</td><td>沟通纪要</td><td></td></tr>
+</tbody>
+</table></div></div></div>
+</div>
+<p style="font-size:0.78rem;color:var(--ink-muted);margin-top:8px;">驻店最后一天，收集<strong>门店满意度验证表</strong>（见 §七）。</p>
+</div>
+
+<div class="subsection"><h3>培训要点</h3>
+<div class="callout callout-warn"><div class="callout-icon">!</div><div><strong>培训原则</strong>：不讲产品理念，只讲怎么用。导购不关心技术多厉害，只关心"这玩意能帮我卖货吗"。</div></div>
+<div class="table-wrap"><table>
+<thead><tr><th>培训环节</th><th>时长</th><th>内容</th><th>关键动作</th></tr></thead>
+<tbody>
+<tr><td>开场</td><td>2分钟</td><td>"今天学一个用手机就能给客户出效果图的工具"</td><td>直接展示成品效果</td></tr>
+<tr><td>精准设计三步骤</td><td>8分钟</td><td>选标签→选窗型→AI出图</td><td>导购跟做一遍</td></tr>
+<tr><td>报价</td><td>3分钟</td><td>方案→自动报价</td><td>演示一次</td></tr>
+<tr><td>图纸</td><td>2分钟</td><td>方案→导出图纸</td><td>展示图纸长什么样</td></tr>
+<tr><td>实操练习</td><td>30分钟</td><td>导购自己操作</td><td>每人至少独立完成1个完整方案</td></tr>
+</tbody>
+</table></div></div>
+
+<div class="subsection"><h3>常见培训陷阱</h3>
+<div class="table-wrap"><table>
+<thead><tr><th style="width:40%">陷阱</th><th>正确做法</th></tr></thead>
+<tbody>
+<tr><td>讲太多产品背景和理念</td><td>导购没兴趣听，直接上手做</td></tr>
+<tr><td>演示完美案例</td><td>用真实的、有瑕疵的场景演示，更可信</td></tr>
+<tr><td>一次教完所有功能</td><td>先教精准设计三步骤，其他后续线上教</td></tr>
+<tr><td>培训完了就走</td><td>第2天必须看导购自己用，发现问题当场修</td></tr>
+<tr><td>只说"这个功能很厉害"</td><td>说"用了这个客户当场就信了，因为能直接看到效果"</td></tr>
+</tbody>
+</table></div></div>
+</section>
+
+<!-- ── SECTION 6 ── -->
+<section class="section" id="s6">
+<div class="section-header"><span class="section-num">06</span><h2>现场调研流程</h2></div>
+
+<div class="subsection"><h3>门店调研清单（驻店 Day 1 上午）</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>调研项</th><th>记录内容</th></tr></thead>
+<tbody>
+<tr><td><strong>门店基本信息</strong></td><td>面积、位置（建材市场/街边/商场）、日均客流</td></tr>
+<tr><td><strong>人员结构</strong></td><td>店长、导购、销售各几人，有无设计师</td></tr>
+<tr><td><strong>现有工具</strong></td><td>用什么出图/报价？画门窗？预见家？手画？</td></tr>
+<tr><td><strong>接待流程</strong></td><td>客户进店→谁接待→怎么推荐→怎么报价→怎么跟进</td></tr>
+<tr><td><strong>典型订单</strong></td><td>主力产品（窗户/门/封阳台）、客单价、成单周期</td></tr>
+<tr><td><strong>工地流程</strong></td><td>谁去量尺？带什么工具？量完怎么出方案？</td></tr>
+<tr><td><strong>痛点观察</strong></td><td>导购有没有说自己解决不了的问题？（记原话）</td></tr>
+</tbody>
+</table></div></div>
+
+<div class="subsection"><h3>店员分角色观察重点</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>角色</th><th>核心观察点</th></tr></thead>
+<tbody><tr><td><strong>导购</strong></td><td>首次接待能不能独立用平台出方案？能不能讲清楚效果图？</td></tr>
+<tr><td><strong>销售（量尺人员）</strong></td><td>工地现场能不能用手机拍照→出图→报价？愿不愿意用？</td></tr>
+<tr><td><strong>店长</strong></td><td>关不关心出图量数据？关不关心导购学习速度？</td></tr>
+</tbody>
+</table></div></div>
+</section>
+
+<!-- ── SECTION 7 ── -->
+<section class="section" id="s7">
+<div class="section-header"><span class="section-num">07</span><h2>数据采集方案</h2></div>
+
+<div class="subsection"><h3>功能验证通过情况</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>能力</th><th>S1</th><th>S2</th><th>S3</th><th>S4</th><th>S5</th><th>整体</th></tr></thead>
+<tbody>
+<tr><td>C1 系列推荐</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>C2 窗型分格推荐</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>C3 图纸</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>C4 室内生图</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>C5 涂抹生图</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>C6 别墅生图</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>C7 报价</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>C8 手动放窗户</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<p style="font-size:0.75rem;color:var(--ink-muted);">打分：✅ 可用 / ⚠️ 有瑕疵但可用 / ❌ 不可用 / — 未覆盖</p>
+</div>
+
+<div class="subsection"><h3>每日使用数据</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>日期</th><th>门店</th><th>操作人/角色</th><th>方案数</th><th>生图</th><th>报价</th><th>图纸</th><th>备注</th></tr></thead>
+<tbody><tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table></div></div>
+
+<div class="subsection"><h3>门店满意度评价（驻店最后一天收集）</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>评价维度</th><th>店长(1-5)</th><th>导购(1-5)</th><th>销售(1-5)</th><th>原话摘录</th></tr></thead>
+<tbody>
+<tr><td>整体好用吗</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>效果图质量</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>操作便捷度</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>对成交有帮助吗</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>愿意继续用吗</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>最不满意的地方</td><td colspan="3" style="text-align:center">（不做评分，记原话）</td><td></td></tr>
+<tr><td>最想要但还没的功能</td><td colspan="3" style="text-align:center">（不做评分，记原话）</td><td></td></tr>
+</tbody>
+</table></div></div>
+
+<div class="subsection"><h3>云端案例库需求验证记录</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>门店</th><th>自发提及</th><th>访谈反馈</th><th>使用场景描述</th><th>结论</th></tr></thead>
+<tbody><tr><td>门店A</td><td></td><td></td><td></td><td></td></tr><tr><td>门店B</td><td></td><td></td><td></td><td></td></tr><tr><td>门店C</td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table></div></div>
+</section>
+
+<!-- ── SECTION 8 ── -->
+<section class="section" id="s8">
+<div class="section-header"><span class="section-num">08</span><h2>案例素材采集</h2></div>
+
+<div class="subsection"><h3>必拍素材清单</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>素材类型</th><th>具体内容</th><th>拍摄要求</th></tr></thead>
+<tbody>
+<tr><td>门店环境</td><td>门头、店内环境、接待区</td><td>自然光，展示真实门店</td></tr>
+<tr><td>导购使用</td><td>平板/手机给客户展示方案</td><td>拍到屏幕+导购表情+客户反应</td></tr>
+<tr><td>工地现场</td><td>拍照、手机出图、给业主看方案</td><td>拍到建筑+手机屏幕+交流画面</td></tr>
+<tr><td>效果对比</td><td>AI效果图 vs 实景并排对比</td><td>同一角度，Before/After</td></tr>
+<tr><td>客户反馈</td><td>客户看到效果图后的反应</td><td>需征得同意</td></tr>
+<tr><td>团队工作照</td><td>驻店团队与店员合影</td><td>自然工作状态</td></tr>
+<tr><td>横幅/物料</td><td>门店展示物料</td><td>拍端正清晰</td></tr>
+</tbody>
+</table></div></div>
+
+<div class="subsection"><h3>视频拍摄指引</h3>
+<ul class="checklist">
+<li>横屏 16:9，1080P 以上</li>
+<li>每条视频 15-30 秒</li>
+<li>优先拍导购使用工具 + 客户反应的镜头</li>
+<li>实习生负责拍摄，天光确认素材达标</li>
+</ul></div>
+
+<div class="subsection"><h3>交付标准</h3>
+<div class="callout callout-info"><div class="callout-icon">✓</div><div>每店至少：<strong>10 张可用照片 + 3 段可用视频</strong>。效果对比图至少 3 组（室内/别墅/涂抹各1组）。</div></div>
+</div>
+</section>
+
+<!-- ── SECTION 9 ── -->
+<section class="section" id="s9">
+<div class="section-header"><span class="section-num">09</span><h2>阶段三：线上跟踪（驻店后 1 周）</h2></div>
+
+<div class="subsection"><h3>跟踪动作</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>天数</th><th>动作</th><th>负责人</th><th>目的</th></tr></thead>
+<tbody>
+<tr><td>D+1</td><td>微信群发送操作指南卡片</td><td>客户成功经理</td><td>巩固培训成果</td></tr>
+<tr><td>D+2</td><td>查看后台数据</td><td>客户成功经理</td><td>判断是否需要主动触达</td></tr>
+<tr><td>D+3</td><td>电话/微信回访店长</td><td>客户成功经理</td><td>收集初步反馈</td></tr>
+<tr><td>D+5</td><td>发技巧小贴士</td><td>天光</td><td>保持互动，增加粘性</td></tr>
+<tr><td>D+7</td><td>导出后台数据，整理周报</td><td>草头</td><td>数据汇总</td></tr>
+</tbody>
+</table></div></div>
+
+<div class="subsection"><h3>跟踪周衡量维度</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>维度</th><th>数据采集方式</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td><strong>活跃度</strong></td><td>后台数据</td><td>驻店后一周是否有持续使用？</td></tr>
+<tr><td><strong>使用深度</strong></td><td>后台数据</td><td>用了哪些功能？只生图还是全链路？</td></tr>
+<tr><td><strong>自主问题</strong></td><td>微信/电话记录</td><td>导购有没有主动提问？</td></tr>
+<tr><td><strong>成单关联</strong></td><td>店长反馈</td><td>有没有因为用了平台而成交的订单？</td></tr>
+</tbody>
+</table></div></div>
+</section>
+
+<!-- ── SECTION 10 ── -->
+<section class="section" id="s10">
+<div class="section-header"><span class="section-num">10</span><h2>阶段四：项目汇报</h2></div>
+
+<div class="subsection"><h3>汇报结构</h3>
+<pre>一、项目概述（谁、在哪、做了多久）
+二、验证结果总览（8项能力 × 5个场景的通过矩阵）
+三、数据汇总
+    - 驻店期间出图量/报价次数/图纸数量
+    - 跟踪周活跃数据 · 成单关联
+四、核心发现（两条主线）
+    上手性：
+    - 导购/销售培训后多久能独立操作？
+    - 哪个功能学习门槛最低？最容易劝退？
+    成交助力：
+    - 有没有"用了→成交了"的真实案例？
+    - 导购/销售原话（正面+负面）
+    - 哪些功能打中了痛点，哪些是幻觉？
+五、产品迭代建议（P0/P1优先级）
+六、典型案例故事（1-2个，含效果对比图+导购原话）
+七、下一步计划</pre></div>
+
+<div class="subsection"><h3>汇报对象</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>对内</th><th>对外（品牌方）</th></tr></thead>
+<tbody>
+<tr><td>管理层（公瑾）+ 产品（欧雨）+ 研发（长川）</td><td>品牌方决策层</td></tr>
+<tr><td>侧重：产品问题、迭代方向、资源需求</td><td>侧重：门店反馈、使用数据、推广建议</td></tr>
+</tbody>
+</table></div></div>
+</section>
+
+<!-- ── SECTION 11 ── -->
+<section class="section" id="s11">
+<div class="section-header"><span class="section-num">11</span><h2>成功标准</h2></div>
+
+<div class="subsection"><h3>打样成功判断维度（不做硬数字，看综合判断）</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>维度</th><th>验证线</th><th>正面信号</th><th>负面信号</th></tr></thead>
+<tbody>
+<tr><td><strong>独立操作完成度</strong></td><td><span class="badge badge-blue">上手性</span></td><td>培训后能独立完成完整方案</td><td>每次都依赖我方指导</td></tr>
+<tr><td><strong>持续使用意愿</strong></td><td><span class="badge badge-blue">上手性</span></td><td>驻店后仍有人主动使用</td><td>驻店结束即零使用</td></tr>
+<tr><td><strong>学习门槛感知</strong></td><td><span class="badge badge-blue">上手性</span></td><td>"这个不难"</td><td>"太复杂/学不会"</td></tr>
+<tr><td><strong>成交关联</strong></td><td><span class="badge badge-amber">成交助力</span></td><td>"用了→成交了"的真实故事</td><td>用了但客户无感</td></tr>
+<tr><td><strong>主观评价</strong></td><td><span class="badge badge-amber">成交助力</span></td><td>"能帮我卖货"</td><td>"帮不上忙"</td></tr>
+<tr><td><strong>功能-场景匹配</strong></td><td>双线</td><td>真实接待中自发使用</td><td>只能演示用</td></tr>
+<tr><td><strong>案例库需求</strong></td><td><span class="badge badge-amber">成交助力</span></td><td>真需求</td><td>伪需求/弱需求</td></tr>
+</tbody>
+</table></div></div>
+
+<div class="subsection"><h3>打样不通过的情况</h3>
+<div class="callout callout-danger"><div class="callout-icon">✕</div><div>以下任意 <strong>2条以上</strong> 同时出现，判定本轮打样不通过：<br>
+① 上手性失败 · ② 零持续使用 · ③ 成交无助力 · ④ 品牌方退出</div></div>
+</div>
+</section>
+
+<!-- ── SECTION 12 ── -->
+<section class="section" id="s12">
+<div class="section-header"><span class="section-num">12</span><h2>复制推广计划</h2></div>
+
+<div class="subsection"><h3>从第一家到第二家的复制路径</h3>
+<div class="flow-diagram">
+<div class="flow-node"><div class="fn-title">第1家（富轩）</div><div class="fn-sub">8月 · 天光主导</div></div><div class="flow-arrow">→</div>
+<div class="flow-node"><div class="fn-title">第2家客户</div><div class="fn-sub">9-10月 · 天光主导</div></div><div class="flow-arrow">→</div>
+<div class="flow-node"><div class="fn-title">第3家客户</div><div class="fn-sub">10-11月 · 天光主导</div></div><div class="flow-arrow">→</div>
+<div class="flow-node"><div class="fn-title">第4家客户</div><div class="fn-sub">后续 · CSM主导</div></div>
+</div>
+<div class="table-wrap"><table>
+<thead><tr><th>打样轮次</th><th>驻店人员</th><th>天数</th><th>迭代重点</th></tr></thead>
+<tbody>
+<tr><td>第1家（富轩）</td><td>天光</td><td>2-3天/店</td><td>跑通流程、排查问题</td></tr>
+<tr><td>第2家</td><td>天光</td><td>2-3天/店</td><td>验证产品修复、优化培训</td></tr>
+<tr><td>第3家</td><td>天光</td><td>2-3天/店</td><td>扩大覆盖类型</td></tr>
+<tr><td>第4家</td><td>CSM为主 + 天光远程指导</td><td>1-2天/店</td><td>验证SOP可规模化</td></tr>
+</tbody>
+</table></div></div>
+
+<div class="subsection"><h3>标杆打造 → 门店推广的转化路径</h3>
+<div class="flow-diagram">
+<div class="flow-node"><div class="fn-title">标杆打造完成</div><div class="fn-sub">案例+数据+原话</div></div><div class="flow-arrow">→</div>
+<div class="flow-node"><div class="fn-title">品牌方推广决策</div><div class="fn-sub">内部评估</div></div><div class="flow-arrow">→</div>
+<div class="flow-node"><div class="fn-title">分批推广</div><div class="fn-sub">3店→10店→全覆盖</div></div>
+</div>
+</div>
+</section>
+
+<!-- ── SECTION 13 ── -->
+<section class="section" id="s13">
+<div class="section-header"><span class="section-num">13</span><h2>风险与应对</h2></div>
+<div class="table-wrap"><table>
+<thead><tr><th>风险</th><th>概率</th><th>影响</th><th>应对</th></tr></thead>
+<tbody>
+<tr><td>门店配合度低，导购不愿用</td><td>中</td><td><span class="badge badge-red">高</span></td><td>选店阶段严格筛选意愿；提前和老板沟通奖惩</td></tr>
+<tr><td>核心功能有严重bug</td><td>中</td><td><span class="badge badge-red">高</span></td><td>草头下店前全链路验证；驻店带笔记本随时修</td></tr>
+<tr><td>工地网络差，生图超时</td><td><span class="badge badge-amber">高</span></td><td>中</td><td>备离线方案（先拍照回店再生成）</td></tr>
+<tr><td>别墅外用场景碰不到</td><td>中</td><td>低</td><td>提前确认门店近期别墅客户情况</td></tr>
+<tr><td>品牌方临时变卦/延期</td><td>低</td><td><span class="badge badge-red">高</span></td><td>提前1周最终确认，签简单备忘录</td></tr>
+<tr><td>转角窗缺位被追问</td><td>中</td><td>中</td><td>话术："转角窗版本下月上线，届时免费升级"</td></tr>
+</tbody>
+</table></div>
+</section>
+
+<!-- ── SECTION 14 ── -->
+<section class="section" id="s14">
+<div class="section-header"><span class="section-num">14</span><h2>附录</h2></div>
+
+<div class="subsection"><h3>给品牌方的一页纸 <span class="badge badge-blue">对外合作方案</span></h3>
+<div class="highlight-box">
+<pre style="background:transparent;border:none;padding:0;margin:0;">━━━━━━━━━━━━━━━━━━━━━━━━
+  门窗AI智能设计平台 · 标杆门店打造计划
+━━━━━━━━━━━━━━━━━━━━━━━━
+
+【我们要做什么】
+挑选3家门店，酷家乐团队驻店2-3天，带教导购使用AI智能设计平台。
+
+【为什么选你的门店】
+  1. 酷家乐团队免费驻店培训
+  2. 打样期间免费使用全部功能（含AI生图）
+  3. 打样成果包装为全国标杆案例，品牌曝光
+  4. 门店使用体验直接影响产品优化方向
+
+【你需要配合什么】
+  ✓ 推荐3家候选门店  ✓ 提前配置品牌窗型库
+  ✓ 提前通知门店配合  ✓ 门店准备展示物料
+
+【时间安排】
+  7月下旬：筹备  →  8月：驻店打样（3店×2-3天）
+  →  驻店后1周：线上跟踪  →  9月初：项目汇报
+
+【联系我们】项目负责人：天光</pre>
+</div></div>
+
+<div class="subsection"><h3>对品牌方用词对照</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>对内用语</th><th>对外（品牌方）用语</th></tr></thead>
+<tbody>
+<tr><td>打样</td><td>标杆门店打造 / 首批试点</td></tr>
+<tr><td>验证</td><td>实战测试 / 使用体验</td></tr>
+<tr><td>导购上手培训</td><td>门店赋能 / 技能提升</td></tr>
+<tr><td>数据采集</td><td>使用情况跟踪</td></tr>
+<tr><td>bug/问题</td><td>优化建议 / 使用反馈</td></tr>
+</tbody>
+</table></div></div>
+
+<div class="subsection"><h3>参考经验</h3>
+<blockquote>经验库当前无门店打样相关历史经验。本次打样结束后，以下条目将反哺经验库：成功打法库（标杆流程验证结果）、踩坑库（意外问题和应对）、话术积累（导购/销售原话）。</blockquote>
+
+<p style="text-align:center;color:var(--ink-light);font-size:0.75rem;margin-top:60px;padding-top:40px;border-top:1px solid var(--blueprint-line);">
+文档版本 v1.0 · 下次更新时机：富轩打样结束后，根据实际执行情况修订第二版
+</p>
+</section>
+
+</main>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+(function() {
+  const sections = document.querySelectorAll('.section');
+  const navLinks = document.querySelectorAll('.sidebar-nav a');
+  const scrollProgress = document.getElementById('scrollProgress');
+  const backTop = document.getElementById('backTop');
+
+  function onScroll() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    scrollProgress.style.width = progress + '%';
+    backTop.classList.toggle('visible', scrollTop > 600);
+
+    let current = sections[0]?.id || '';
+    sections.forEach(sec => {
+      const top = sec.getBoundingClientRect().top;
+      if (top < 140) current = sec.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>
