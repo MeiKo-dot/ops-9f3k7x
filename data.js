@@ -13,7 +13,7 @@
 
 const AMMO_DATA = {
 
-  updated: "2026-08-03",
+  updated: "2026-08-13",
 
   /* ───────── 📋 商务汇报材料 ─────────
      拜访客户/汇报时打开展示，可当着客户面翻 */
@@ -24,17 +24,25 @@ const AMMO_DATA = {
       link: "弹药/门窗AI智能设计平台-高层汇报.html" },
     { title: "门窗AI平台原型Demo",
       usage: "现场可操作的<strong>平台交互演示</strong>，让客户亲手点一遍完整产品链路",
-      tags: ["Demo", "AI平台"], updated: "08-03", author: "尚酷&欧雨",
-      link: "弹药/index.html" },
+      tags: ["Demo", "AI平台"], updated: "08-12", author: "尚酷&欧雨",
+      link: "弹药/门窗AI智能设计平台-演示版.html" },
     { title: "AI平台 vs 通用大模型 · 一页纸",
       usage: "客户问<em>「直接用豆包/ChatGPT不行吗」</em>时打开，页面对比讲清垂直平台的数据/流程/效果壁垒",
       tags: ["竞品", "生图模型"], updated: "07-31", author: "尚酷",
-      link: "弹药/AI平台vs通��大模型-一页纸对比.html" }
+      link: "弹药/AI平台vs通��大模型-一页纸对比.html" },
+    { title: "门窗AI平台 · VIP权益表",
+      usage: "客户问<strong>怎么收费/有什么权益</strong>时打开，基座费+账号费+核豆分层权益一页讲清",
+      tags: ["收费", "权益"], updated: "08-11", author: "尚酷",
+      link: "弹药/VIP权益表.html" }
   ],
 
   /* ───────── 🚀 重点功能介绍 ─────────
      重要功能独立介绍物料，客户问「你们有什么独特功能」时逐一展示 */
   features: [
+    { title: "AI别墅生图 · 新功能落地页",
+      usage: "别墅业主<strong>一张毛坯照秒变效果图</strong>，8.13 正式上线；拜访别墅客户时打开展示完整生成链路",
+      tags: ["生图", "别墅"], updated: "08-13", author: "尚酷",
+      link: "弹药/AI别墅生图-落地页.html" },
     { title: "AI外景生图 · 宣传海报",
       usage: "外立面换窗效果一图流，<strong>朋友圈/客户群</strong>直接发；拜访时打开展示效果对比",
       tags: ["生图", "海报"], updated: "07-20", author: "尚酷",

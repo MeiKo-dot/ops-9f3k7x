@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>门窗AI智能设计平台 · VIP权益表</title>
+<style>
+  :root{
+    --teal:#006D6F;
+    --teal-deep:#00494B;
+    --teal-soft:#EAF3F2;
+    --teal-row:#F2F8F7;
+    --ink:#1F2328;
+    --text2:#5A6570;
+    --text3:#8A939C;
+    --line:#DDE3E0;
+    --bg:#F7F7F4;
+    --card:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  .page{max-width:1120px;margin:0 auto;padding:56px 36px 72px;}
+
+  /* ── 头部 ── */
+  header{margin-bottom:36px;}
+  .brand{
+    font-size:13px;letter-spacing:0.28em;color:var(--teal);
+    font-weight:600;margin-bottom:14px;
+  }
+  h1{
+    font-family:"Noto Serif SC","Songti SC","SimSun",serif;
+    font-size:44px;font-weight:700;letter-spacing:0.02em;
+    display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;
+  }
+  h1 .en{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-weight:400;font-size:20px;color:var(--text3);letter-spacing:0.06em;}
+  .subline{
+    margin-top:16px;font-size:15px;color:var(--text2);
+    display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  }
+  .subline b{color:var(--teal-deep);font-weight:600;}
+  .subline .dot{color:var(--line);}
+  .rule{height:2px;background:var(--teal);margin-top:22px;border:none;}
+
+  /* ── 费用总览 ── */
+  .fees{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:30px 0 34px;}
+  .fee{
+    background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:20px 22px;
+  }
+  .fee .name{font-size:13px;color:var(--text2);letter-spacing:0.06em;margin-bottom:6px;}
+  .fee .amount{font-size:27px;font-weight:700;color:var(--teal-deep);font-variant-numeric:tabular-nums;letter-spacing:0.01em;}
+  .fee .amount small{font-size:14px;font-weight:500;color:var(--text3);margin-left:2px;}
+  .fee .desc{font-size:12.5px;color:var(--text3);margin-top:8px;line-height:1.5;}
+
+  /* ── 主表 ── */
+  .table-wrap{
+    background:var(--card);border:1px solid var(--line);border-radius:4px;overflow:hidden;
+  }
+  table{width:100%;border-collapse:collapse;table-layout:fixed;}
+  thead th{
+    background:var(--teal);color:#fff;text-align:left;
+    font-size:13px;font-weight:600;letter-spacing:0.14em;
+    padding:13px 16px;
+    border-right:1px solid rgba(255,255,255,0.18);
+  }
+  thead th:last-child{border-right:none;}
+  thead th:nth-child(1){width:112px;}
+  thead th:nth-child(2){width:148px;}
+  thead th:nth-child(3){width:auto;}
+  thead th:nth-child(4){width:210px;}
+  tbody td{
+    padding:13px 16px;font-size:13.5px;vertical-align:top;
+    border-top:1px solid #D8DFDC;
+    border-left:1px solid #E8EDEA;
+  }
+  tbody td:first-child{border-left:none;}
+  tbody tr:first-child td{border-top:none;}
+  tbody tr.group-end td{border-bottom:2px solid #AEBDB9;}
+  td.cat{
+    background:var(--teal-row);color:var(--teal-deep);
+    font-weight:700;font-size:15px;letter-spacing:0.05em;
+    vertical-align:middle;text-align:left;
+    padding:16px;
+  }
+  td.fn{font-weight:600;color:var(--ink);font-size:13.5px;padding-top:15px;}
+  td.fn .pending{
+    display:inline-block;margin-left:6px;
+    padding:1px 7px;font-size:11px;font-weight:500;
+    color:#8A939C;background:#F0F0EE;
+    border-radius:3px;vertical-align:2px;letter-spacing:0.04em;
+  }
+  td.desc{color:var(--text2);line-height:1.65;}
+  td.note{
+    background:var(--teal-row);color:var(--teal-deep);
+    font-size:13px;font-weight:600;line-height:1.7;
+    vertical-align:middle;
+  }
+  td.note .tag{
+    display:inline-block;background:var(--teal);color:#fff;
+    font-size:12px;font-weight:600;border-radius:999px;
+    padding:3px 11px;margin:3px 4px 3px 0;letter-spacing:0.03em;
+  }
+  td.note .tag.ghost{background:transparent;color:var(--teal-deep);border:1px solid var(--teal);padding:2px 10px;}
+
+  /* ── 技术底座 ── */
+  .techbase{margin-top:26px;border-left:3px solid var(--teal);padding:14px 22px;background:var(--teal-row);border-radius:0 4px 4px 0;}
+  .techbase .t{font-size:13px;font-weight:700;color:var(--teal-deep);letter-spacing:0.06em;margin-bottom:6px;}
+  .techbase p{font-size:13px;color:var(--text2);line-height:1.7;}
+  .techbase b{color:var(--teal-deep);}
+
+  /* ── 内部口径 ── */
+  .internal{margin-top:34px;}
+  .internal summary{
+    cursor:pointer;font-size:13px;color:var(--text3);font-weight:600;
+    letter-spacing:0.08em;list-style:none;user-select:none;
+    padding:10px 0;border-top:1px dashed var(--line);
+  }
+  .internal summary::before{content:"▸ ";color:var(--teal);}
+  .internal[open] summary::before{content:"▾ ";}
+  .internal ul{margin:6px 0 10px;padding:12px 18px 12px 18px;background:#FBFAF7;border:1px solid var(--line);border-radius:4px;}
+  .internal li{font-size:12.5px;color:var(--text3);line-height:1.8;margin:2px 0;}
+  .internal li b{color:var(--text2);font-weight:600;}
+
+  /* ── 页脚 ── */
+  footer{
+    margin-top:40px;padding-top:16px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    font-size:12px;color:var(--text3);
+  }
+
+  /* ── 打印 ── */
+  @media print{
+    body{background:#fff;}
+    .page{padding:24px;max-width:none;}
+    .table-wrap{border:none;}
+    .internal ul{background:#fafafa;}
+  }
+  @media (max-width:860px){
+    .fees{grid-template-columns:1fr;}
+    thead th:nth-child(4){width:160px;}
+    td.note{font-size:12px;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="brand">酷家乐 · 门窗AI智能设计平台</div>
+    <h1>VIP 权益表<span class="en">Rights &amp; Benefits</span></h1>
+    <div class="subline">
+      <span><b>单人年费：1500 元/人/年</b>（费用转化为 token 算力进行功能消耗）</span>
+      <span class="dot">·</span>
+      <span><b>企业基座费：20 万/年</b>（部署 / 产品库配置 / 培训 / 升级）</span>
+      <span class="dot">·</span>
+      <span>核豆充值：<b>1 元 = 100 核豆</b></span>
+    </div>
+    <div class="subline" style="margin-top:8px;color:var(--text3);font-size:13.5px;">
+      PC + PAD + 手机 三端互通 · 门店导购零门槛使用
+    </div>
+    <hr class="rule">
+  </header>
+
+  <section class="fees">
+    <div class="fee">
+      <div class="name">基座费</div>
+      <div class="amount">20 万<small>/ 年</small></div>
+      <div class="desc">企业级平台入驻：部署、产品库/知识库配置、培训、全年迭代升级</div>
+    </div>
+    <div class="fee">
+      <div class="name">账号年费</div>
+      <div class="amount">1500 元<small>/ 人 / 年</small></div>
+      <div class="desc">每人全年全功能使用权 + 每月赠送 AI 算力（费用转化为 token 算力）</div>
+    </div>
+    <div class="fee">
+      <div class="name">核豆充值</div>
+      <div class="amount">1 元 = 100 核豆</div>
+      <div class="desc">按需购买额外 AI 算力，超出赠送部分 25 核豆/次，用完即充</div>
+    </div>
+  </section>
+
+  <section class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>权益类型</th>
+          <th>功能说明</th>
+          <th>详情</th>
+          <th>特殊备注</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 门窗设计 ×5 -->
+        <tr>
+          <td class="cat" rowspan="5">门窗设计</td>
+          <td class="fn">新建设计</td>
+          <td class="desc">选择产品系列，创建一套新的门窗设计方案</td>
+          <td class="note"></td>
+        </tr>
+        <tr>
+          <td class="fn">窗型匹配</td>
+          <td class="desc">录入洞口尺寸，智能筛选出一批符合洞口尺寸的窗型样式</td>
+          <td class="note"></td>
+        </tr>
+        <tr>
+          <td class="fn">配置与细节</td>
+          <td class="desc">调整玻璃、纱网、执手、五金、颜色和材质，实时查看门窗结构与配置结果</td>
+          <td class="note"></td>
+        </tr>
+        <tr>
+          <td class="fn">报价单</td>
+          <td class="desc">根据方案生成门窗报价清单</td>
+          <td class="note"></td>
+        </tr>
+        <tr class="group-end">
+          <td class="fn">门窗图纸</td>
+          <td class="desc">根据方案生成用于给客户确认方案的大样图纸</td>
+          <td class="note"></td>
+        </tr>
+
+        <!-- AI生图 ×2（特殊备注合并） -->
+        <tr>
+          <td class="cat" rowspan="2">AI生图</td>
+          <td class="fn">AI 涂抹消除</td>
+          <td class="desc">一键清除工地照片中的黄沙水泥/脚手架/幕布/旧窗等近 30 种杂物，保留建筑与窗洞结构，生成干净毛坯底图</td>
+          <td class="note" rowspan="2"><span class="tag">每月赠送 200 次</span><br>AI 生图类功能<br><span class="tag ghost">超出部分 25 核豆/次</span></td>
+        </tr>
+        <tr class="group-end">
+          <td class="fn">AI 效果图</td>
+          <td class="desc">上传现场照片或直接调用关联客户量尺记录中的现场照片，选择设计方案和风格，生成并对比换窗效果图，用于客户沟通；覆盖室内、室外别墅、阳台外立面等场景</td>
+        </tr>
+
+        <!-- 门窗Agent ×8（特殊备注合并） -->
+        <tr>
+          <td class="cat" rowspan="8">门窗Agent</td>
+          <td class="fn">需求诊断<span class="pending">待上线</span></td>
+          <td class="desc">记录客户住宅、空间、痛点、偏好、预算和时间计划，通过智能追问把模糊诉求整理成完整需求</td>
+          <td class="note" rowspan="8"><span class="tag">前十家签约客户</span><br>Agent 消耗的 token<br>由门窗业务线承担</td>
+        </tr>
+        <tr>
+          <td class="fn">换窗建议书<span class="pending">待上线</span></td>
+          <td class="desc">基于客户需求生成环境研判、配置方向、分空间建议和风险提示，用于现场讲解、保存或分享</td>
+        </tr>
+        <tr>
+          <td class="fn">产品检索</td>
+          <td class="desc">通过关键词查找适合的产品系列</td>
+        </tr>
+        <tr>
+          <td class="fn">案例检索</td>
+          <td class="desc">通过关键词查找适合的相似案例</td>
+        </tr>
+        <tr>
+          <td class="fn">通用问答</td>
+          <td class="desc">查询门窗通用知识，秒级返回</td>
+        </tr>
+        <tr>
+          <td class="fn">专业问答<span class="pending">待上线</span></td>
+          <td class="desc">查询品牌政策、产品、工艺、安装、售后、报价和培训知识；回答同时展示来源</td>
+        </tr>
+        <tr>
+          <td class="fn">沟通助手<span class="pending">待上线</span></td>
+          <td class="desc">粘贴客户聊天内容或上传聊天截图，识别客户问题和沟通场景，生成多种可直接复制的回复建议，并提示下一步沟通动作</td>
+        </tr>
+        <tr class="group-end">
+          <td class="fn">设计助手<span class="pending">待上线</span></td>
+          <td class="desc">在设计过程中询问尺寸、性能、配置和工艺问题，获得与当前方案相关的建议</td>
+        </tr>
+
+        <!-- 方案与资源 ×3 -->
+        <tr>
+          <td class="cat" rowspan="3">方案与资源</td>
+          <td class="fn">客户方案管理</td>
+          <td class="desc">搜索、新建和查看客户项目，集中查看量尺记录、换窗建议书和设计方案；支持多方案版本复制、分享、归档和继续编辑</td>
+          <td class="note"></td>
+        </tr>
+        <tr>
+          <td class="fn">产品库</td>
+          <td class="desc">可上传品牌产品介绍，浏览品牌产品详情，查看卖点、参数、适用场景、价格区间和可设计状态</td>
+          <td class="note"></td>
+        </tr>
+        <tr class="group-end">
+          <td class="fn">案例库</td>
+          <td class="desc">可上传品牌案例介绍，浏览品牌真实案例，按地区、户型、空间、风格和产品系列筛选，用于客户沟通</td>
+          <td class="note"></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="techbase">
+    <div class="t">AI 生图技术底座</div>
+    <p>基于 Flux 2.0 + 门窗行业专属 LoRA（窗型替换 / 材质匹配 / 洞口光照融合）训练。区别于通用大模型「好看不一定对」，门窗 AI 卖的是<b>确定性</b>——窗型精准还原、场景 1:1 一致、所见即所得。</p>
+  </section>
+
+  <section class="internal">
+    <details open>
+      <summary>内部口径备忘 · 仅 CSM / 商务可见，对外不展示</summary>
+      <ul>
+        <li>账号费非纯账号费，转化为 <b>token 算力</b>进行功能消耗；生图核豆由客户自行充值承担</li>
+        <li>AI 生图类每月赠送 <b>200 次</b>（2026-08-10 定稿，旧口径 50 次/月作废，所有材料已同步更新）</li>
+        <li>Agent token：今年新签 <b>前 10 家客户</b>由门窗业务线承担，对外表述「前十家签约客户，Agent 消耗的 token 由门窗业务线承担」</li>
+        <li>权益范围包含部分开发中功能，未来持续有新功能迭代和更新，不做具体承诺</li>
+        <li>极速版生图同样接入核豆消耗系统；涂抹消除限时免费，后续视数据决策</li>
+      </ul>
+    </details>
+  </section>
+
+  <footer>
+    <span>门窗AI智能设计平台 · VIP权益表 v4.0</span>
+    <span>2026-08-10 · 功能依据：乐享《门窗AI平台功能模块清单》（2026-08-05）</span>
+  </footer>
+
+</div>
+</body>
+</html>
