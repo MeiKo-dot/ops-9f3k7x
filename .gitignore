@@ -1,0 +1,5 @@
+# 部署/开发残留，不进仓库
+.edgeone/
+.env
+shot.js
+弹药/海报素材/base64_images.json
