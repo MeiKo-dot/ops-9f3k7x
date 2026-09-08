@@ -13,7 +13,7 @@
 
 const AMMO_DATA = {
 
-  updated: "2026-09-07",
+  updated: "2026-09-08",
 
   /* ───────── 📋 商务汇报材料 ─────────
      拜访客户/汇报时打开展示，可当着客户面翻 */
@@ -76,7 +76,7 @@ const AMMO_DATA = {
       status: "signed",
       statusText: "已签约 · 首家打样",
       watermark: "FX",
-      updated: "09-07", author: "天光",
+      updated: "09-08", author: "天光",
       link: "弹药/富轩门窗-标杆门店案例.html" }
   ],
   caseResources: [
