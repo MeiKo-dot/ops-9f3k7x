@@ -13,7 +13,7 @@
 
 const AMMO_DATA = {
 
-  updated: "2026-09-08",
+  updated: "2026-10-23",
 
   /* ───────── 📋 商务汇报材料 ─────────
      拜访客户/汇报时打开展示，可当着客户面翻 */
@@ -33,7 +33,7 @@ const AMMO_DATA = {
     { title: "AI平台 vs 通用大模型 · 一页纸",
       usage: "客户问<em>「直接用豆包/ChatGPT不行吗」</em>时打开，页面对比讲清垂直平台的数据/流程/效果壁垒",
       tags: ["竞品", "生图模型"], updated: "07-31", author: "尚酷",
-      link: "弹药/AI平台vs通��大模型-一页纸对比.html" },
+      link: "弹药/AI平台vs通用大模型-一页纸对比.html" },
     { title: "门窗AI平台 · VIP权益表",
       usage: "客户问<strong>怎么收费/有什么权益</strong>时打开，年度服务费+账号费+核豆分层权益一页讲清",
       tags: ["收费", "权益"], updated: "08-28", author: "尚酷",
@@ -80,6 +80,10 @@ const AMMO_DATA = {
       link: "弹药/富轩门窗-标杆门店案例.html" }
   ],
   caseResources: [
+    { title: "门窗AI平台 · 产品资料中心",
+      usage: "现场照片 → 平台产出物 → 操作教程 → 宣传视频，一条线看完<strong>平台到底能做出什么</strong>；客户问「有资料吗/发我看看」时直接发链接",
+      tags: ["资料中心", "产出物"], updated: "10-23", author: "尚酷",
+      link: "弹药/门窗AI平台·产品资料中心.html" },
     { title: "标杆门店打造 · 执行手册",
       usage: "<strong>门店验证</strong>的标准化操作模板：选址标准、驻场流程、数据采集、验收checklist",
       tags: ["模板", "门店"], updated: "07-31", author: "天光",
