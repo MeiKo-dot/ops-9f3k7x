@@ -6,7 +6,7 @@
 <title>门窗AI · 作战物资站</title>
 <!--
   门窗AI · 作战物资站  OPS SUPPLY STATION v2.4
-  四大区：商务汇报 / 功能介绍 / 客户案例 / FAQ
+  四大区：商务汇报 / 功能介绍 / 资料中心 / FAQ
   维护方式：改 data.js → 刷新页面 → 验证（shot.js）
   上线方式：整个作战物资站/目录部署到 CloudStudio
 -->
@@ -253,7 +253,7 @@ body {
     <nav class="statusbar-nav">
       <a href="#biz">汇报</a>
       <a href="#features">功能</a>
-      <a href="#cases">案例</a>
+      <a href="#cases">资料</a>
       <a href="#faq">FAQ</a>
       <a href="#supply">补给</a>
     </nav>
@@ -307,14 +307,14 @@ body {
     <div class="ammo-group" id="groupFeat"></div>
   </section>
 
-  <!-- === 🏆 客户案例 === -->
+  <!-- === 📚 资料中心 === -->
   <section class="section reveal" id="cases">
     <div class="sec-head">
       <span class="sec-no">SEC.03</span>
-      <h2 class="sec-title">客户案例</h2>
-      <span class="sec-en">Proven Cases</span>
+      <h2 class="sec-title">资料中心</h2>
+      <span class="sec-en">Resource Center</span>
     </div>
-    <p class="sec-sub">「同行谁在用」是最强说服力 —— 这些故事常备嘴边</p>
+    <p class="sec-sub">案例、手册、对外资料都在这里 —— 客户要证据、要资料时先翻这一区</p>
     <div class="sec-rule"></div>
     <div class="case-grid" id="caseGrid"></div>
     <div class="ammo-group" style="margin-top:20px" id="groupCases"></div>
@@ -362,7 +362,7 @@ const totalAmmo = D.bizMaterials.length + D.features.length + (D.caseResources?.
 document.getElementById('heroStats').innerHTML = [
   { num: totalAmmo, unit: '件', label: '在库弹药' },
   { num: D.faq.length, unit: '问', label: '常见问答' },
-  { num: (D.cases?.length||0) + (D.caseResources?.length||0), unit: '项', label: '案例资产' }
+  { num: (D.cases?.length||0) + (D.caseResources?.length||0), unit: '项', label: '资料条目' }
 ].map(s => `<div class="stat"><div class="stat-num">${s.num}<span class="unit">${s.unit}</span></div><div class="stat-label">${s.label}</div></div>`).join('');
 
 /* --- 分区配置 --- */
@@ -371,8 +371,8 @@ const sections = [
     css: 'biz', bi: 'bi-biz', data: D.bizMaterials, groupId: 'groupBiz' },
   { key: 'feat', id: 'Feat', icon: '🚀', name: '重点功能介绍', code: 'FEATURE DROPS', desc: null,
     css: 'feat', bi: 'bi-feat', data: D.features, groupId: 'groupFeat' },
-  { key: 'cases', id: 'Cases', icon: '🏆', name: '客户案例', code: 'CASE FILES', desc: null,
-    css: 'cases', bi: 'bi-cases', data: D.caseResources||[], groupId: 'groupCases' }
+  { key: 'cases', id: 'Cases', icon: '📚', name: '资料中心', code: 'RESOURCE CENTER', desc: null,
+    css: 'cases', bi: 'bi-cases', data: D.caseResources||[], groupId: 'groupCases', idPrefix: 'RES' }
 ];
 
 /* --- 弹药分区渲染 --- */
@@ -389,7 +389,7 @@ sections.forEach(sec => {
     <div class="cards"></div>`;
   const cardsDiv = groupDiv.querySelector('.cards');
   items.forEach((a, i) => {
-    const id = sec.key.toUpperCase() + '-' + String(i + 1).padStart(3, '0');
+    const id = (sec.idPrefix || sec.key).toUpperCase() + '-' + String(i + 1).padStart(3, '0');
     const search = (a.title + ' ' + a.usage + ' ' + (a.tags||[]).join(' ')).toLowerCase().replace(/<[^>]*>/g, '');
     const tags = (a.tags||[]).map(t => `<span class="card-tag">#${t}</span>`).join('');
     const card = document.createElement('div');
